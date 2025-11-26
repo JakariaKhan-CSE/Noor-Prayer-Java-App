@@ -10,6 +10,6 @@
         android:title="Quran" />
     <item
         android:id="@+id/nav_hadith"
-        android:icon="@android:drawable/ic_menu_view"
+        android:icon="@drawable/ic_book"
         android:title="Hadith" />
 </menu>

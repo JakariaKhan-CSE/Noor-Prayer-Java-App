@@ -105,11 +105,11 @@ public class PrayerTimesFragment extends Fragment {
             public void onResponse(Call<PrayerTimesResponse> call, Response<PrayerTimesResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     PrayerTimesResponse.Timings timings = response.body().getData().getTimings();
-                    tvFajr.setText(timings.getFajr());
-                    tvDhuhr.setText(timings.getDhuhr());
-                    tvAsr.setText(timings.getAsr());
-                    tvMaghrib.setText(timings.getMaghrib());
-                    tvIsha.setText(timings.getIsha());
+                    tvFajr.setText(formatTime(timings.getFajr()));
+                    tvDhuhr.setText(formatTime(timings.getDhuhr()));
+                    tvAsr.setText(formatTime(timings.getAsr()));
+                    tvMaghrib.setText(formatTime(timings.getMaghrib()));
+                    tvIsha.setText(formatTime(timings.getIsha()));
                 } else {
                     Toast.makeText(getContext(), "Failed to get prayer times", Toast.LENGTH_SHORT).show();
                 }
@@ -120,5 +120,17 @@ public class PrayerTimesFragment extends Fragment {
                 Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private String formatTime(String time) {
+        try {
+            // Remove any timezone info if present (e.g. "05:00 (EST)")
+            String cleanTime = time.split(" ")[0];
+            java.text.SimpleDateFormat inputFormat = new java.text.SimpleDateFormat("HH:mm", java.util.Locale.getDefault());
+            java.text.SimpleDateFormat outputFormat = new java.text.SimpleDateFormat("h:mm a", java.util.Locale.getDefault());
+            return outputFormat.format(inputFormat.parse(cleanTime));
+        } catch (Exception e) {
+            return time;
+        }
     }
 }
