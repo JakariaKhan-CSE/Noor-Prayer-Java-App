@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prayer Times"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Add prayer time items here -->
+    <TextView
+        android:id="@+id/tv_fajr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fajr: --:--"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+    
+    <TextView
+        android:id="@+id/tv_dhuhr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dhuhr: --:--"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_asr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Asr: --:--"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_maghrib"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Maghrib: --:--"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_isha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Isha: --:--"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+
+</LinearLayout>

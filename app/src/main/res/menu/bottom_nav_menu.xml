@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_prayer"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:title="Prayer Times" />
+    <item
+        android:id="@+id/nav_quran"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="Quran" />
+    <item
+        android:id="@+id/nav_hadith"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="Hadith" />
+</menu>

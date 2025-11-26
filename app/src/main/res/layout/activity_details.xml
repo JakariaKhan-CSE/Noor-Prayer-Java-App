@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".DetailsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtDetailsMagnitude"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/circle_background"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="5.4" />
+
+        <TextView
+            android:id="@+id/txtDetailsLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtDetailsMagnitude"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12km N of Los Angeles, CA" />
+
+        <TextView
+            android:id="@+id/txtDetailsTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/txtDetailsLocation"
+            app:layout_constraintTop_toBottomOf="@id/txtDetailsLocation"
+            tools:text="Oct 24, 2023 10:30 AM" />
+            
+        <TextView
+            android:id="@+id/lblCoordinates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Coordinates:"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtDetailsMagnitude" />
+
+        <TextView
+            android:id="@+id/txtCoordinates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/lblCoordinates"
+            app:layout_constraintStart_toEndOf="@id/lblCoordinates"
+            app:layout_constraintTop_toTopOf="@id/lblCoordinates"
+            tools:text="34.05, -118.25" />
+
+        <TextView
+            android:id="@+id/lblDepth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Depth:"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblCoordinates" />
+
+        <TextView
+            android:id="@+id/txtDepth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/lblDepth"
+            app:layout_constraintStart_toEndOf="@id/lblDepth"
+            app:layout_constraintTop_toTopOf="@id/lblDepth"
+            tools:text="10 km" />
+
+        <Button
+            android:id="@+id/btnViewOnMap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="View on Map"
+            app:layout_constraintTop_toBottomOf="@id/lblDepth" />
+            
+        <Button
+            android:id="@+id/btnMoreInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="More Info (USGS)"
+            app:layout_constraintTop_toBottomOf="@id/btnViewOnMap" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
