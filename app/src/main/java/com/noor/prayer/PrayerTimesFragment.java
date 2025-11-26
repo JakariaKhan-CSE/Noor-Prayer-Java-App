@@ -34,16 +34,27 @@ public class PrayerTimesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_prayer_times, container, false);
         
-        tvFajr = view.findViewById(R.id.tv_fajr);
-        tvDhuhr = view.findViewById(R.id.tv_dhuhr);
-        tvAsr = view.findViewById(R.id.tv_asr);
-        tvMaghrib = view.findViewById(R.id.tv_maghrib);
-        tvIsha = view.findViewById(R.id.tv_isha);
+        setupPrayerItem(view.findViewById(R.id.card_fajr), "Fajr");
+        setupPrayerItem(view.findViewById(R.id.card_dhuhr), "Dhuhr");
+        setupPrayerItem(view.findViewById(R.id.card_asr), "Asr");
+        setupPrayerItem(view.findViewById(R.id.card_maghrib), "Maghrib");
+        setupPrayerItem(view.findViewById(R.id.card_isha), "Isha");
+
+        tvFajr = view.findViewById(R.id.card_fajr).findViewById(R.id.tv_prayer_time);
+        tvDhuhr = view.findViewById(R.id.card_dhuhr).findViewById(R.id.tv_prayer_time);
+        tvAsr = view.findViewById(R.id.card_asr).findViewById(R.id.tv_prayer_time);
+        tvMaghrib = view.findViewById(R.id.card_maghrib).findViewById(R.id.tv_prayer_time);
+        tvIsha = view.findViewById(R.id.card_isha).findViewById(R.id.tv_prayer_time);
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
         checkLocationPermission();
 
         return view;
+    }
+
+    private void setupPrayerItem(View cardView, String name) {
+        TextView tvName = cardView.findViewById(R.id.tv_prayer_name);
+        tvName.setText(name);
     }
 
     private void checkLocationPermission() {
@@ -94,11 +105,11 @@ public class PrayerTimesFragment extends Fragment {
             public void onResponse(Call<PrayerTimesResponse> call, Response<PrayerTimesResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     PrayerTimesResponse.Timings timings = response.body().getData().getTimings();
-                    tvFajr.setText("Fajr: " + timings.getFajr());
-                    tvDhuhr.setText("Dhuhr: " + timings.getDhuhr());
-                    tvAsr.setText("Asr: " + timings.getAsr());
-                    tvMaghrib.setText("Maghrib: " + timings.getMaghrib());
-                    tvIsha.setText("Isha: " + timings.getIsha());
+                    tvFajr.setText(timings.getFajr());
+                    tvDhuhr.setText(timings.getDhuhr());
+                    tvAsr.setText(timings.getAsr());
+                    tvMaghrib.setText(timings.getMaghrib());
+                    tvIsha.setText(timings.getIsha());
                 } else {
                     Toast.makeText(getContext(), "Failed to get prayer times", Toast.LENGTH_SHORT).show();
                 }

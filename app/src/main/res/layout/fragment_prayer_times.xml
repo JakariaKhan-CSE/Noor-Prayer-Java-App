@@ -1,56 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@color/background_color"
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Prayer Times"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <!-- Add prayer time items here -->
-    <TextView
-        android:id="@+id/tv_fajr"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fajr: --:--"
-        android:textSize="18sp"
-        android:padding="8dp"/>
-    
-    <TextView
-        android:id="@+id/tv_dhuhr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dhuhr: --:--"
-        android:textSize="18sp"
-        android:padding="8dp"/>
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tv_asr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Asr: --:--"
-        android:textSize="18sp"
-        android:padding="8dp"/>
+        <!-- Header Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
 
-    <TextView
-        android:id="@+id/tv_maghrib"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Maghrib: --:--"
-        android:textSize="18sp"
-        android:padding="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tv_isha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Isha: --:--"
-        android:textSize="18sp"
-        android:padding="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prayer Times"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Locating..."
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Prayer Time Items -->
+        <include
+            layout="@layout/item_prayer_time"
+            android:id="@+id/card_fajr" />
+
+        <include
+            layout="@layout/item_prayer_time"
+            android:id="@+id/card_dhuhr" />
+
+        <include
+            layout="@layout/item_prayer_time"
+            android:id="@+id/card_asr" />
+
+        <include
+            layout="@layout/item_prayer_time"
+            android:id="@+id/card_maghrib" />
+
+        <include
+            layout="@layout/item_prayer_time"
+            android:id="@+id/card_isha" />
+
+    </LinearLayout>
+</ScrollView>
